@@ -4,6 +4,8 @@
 
 .container-fluid {
   width: 100%;
+  max-width: 1600px;
+  margin: auto;
   padding: 0 20px;
 }
 
@@ -18,7 +20,8 @@ header {
   margin-bottom: 15px;
   display: flex;
   .logo {
-    max-width: 215px;
+    max-width: 315px;
+    margin-right: 15px;
     width: 100%;
   }
   .content {
@@ -30,35 +33,81 @@ header {
     .contacts {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 10px;
       background: #f5f5f5;
       color: #4d4d4d;
       font-size: 12px;
+      &>div{
+        display: flex;
+        align-items: center;
+      }
+      .phone{
+        margin-right: 20px;
+        b{
+          font-size: 24px;
+          font-weight: 400;
+        }
+      }
+      a{
+        font-size: 12px;
+        line-height: 18px;
+        color: #5A5040;
+        text-shadow: none;
+        margin-right: 10px;
+      }
     }
     .navigation {
       ul {
         padding: 0;
         list-style: none;
-        //display: flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         //justify-content: space-between;
         li {
           padding: 0;
           display: inline-block;
+          border: 1px solid;
+          margin: 3px;
+          border-radius: 4px;
+          transition: 0.3s;
           a {
             text-decoration: none;
-            padding: 10px 20px;
-            border: 1px solid;
+            padding: 3px 10px;
+            line-height: 30px;
             margin: 4px;
+          }
+          &:hover{
+            background-color: green;
+            a{
+              color: white;
+            }
           }
         }
       }
     }
-    input {
-      padding: 8px;
-      border: 1px solid #4d4d4d;
-      border-radius: 5px;
-      outline: none;
+    .search {
+      width: 100%;
+      position: relative;
+      input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid rgb(220, 220, 220);
+        border-radius: 5px;
+        outline: none;
+        display: block;
+        padding-left: 30px;
+      }
+      &:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f002";
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        color: grey;
+      }
     }
   }
 }
@@ -66,8 +115,9 @@ header {
 .main {
   display: flex;
   .sidebar {
-    max-width: 215px;
+    max-width: 315px;
     width: 100%;
+    margin-right: 10px;
   }
   .content {
     padding: 10px;
@@ -85,6 +135,7 @@ header {
           padding: 0 0 15px;
           border-bottom: 1px solid #ebebeb;
           margin-top: 0;
+          margin-left: 10px;
           &:before {
             content: '';
             position: absolute;
@@ -110,15 +161,19 @@ header {
   border-radius: 4px;
   h3 {
     margin: 0;
-    padding: 5px;
-    background: #e23e1d;
+    padding: 10px 15px;
+    background: #303030;
     font-weight: 400;
     font-size: 18px;
     color: white;
     text-transform: uppercase;
+    transition: 0.3s;
     i {
       font-size: 16px;
       margin-right: 10px;
+    }
+    &:hover{
+      color: orangered;
     }
   }
   .content {
@@ -156,10 +211,10 @@ header {
   display: flex;
   flex-wrap: wrap;
   .item {
-    max-width: 418px;
+    //max-width: 418px;
     /* max-width: 30%; */
-    min-width: 300px;
-    width: 32%;
+    min-width: 160px;
+    width: calc(25% - 10px);
     //max-width: 300px;
     //width: 100%;
     padding: 5px;
@@ -221,9 +276,14 @@ header {
     border-radius: 4px;
     .title{
       h3{
-        margin: 5px 0;
+        margin: 8px 5px;
         a{
-
+          text-transform: capitalize;
+          text-decoration: none;
+          color: #6c6c6c;
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 30px;
         }
       }
     }
@@ -234,6 +294,38 @@ header {
         object-fit: cover;
         width: 100%;
         height: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  header .content .contacts{
+    flex-direction: column;
+  }
+  header .logo{
+    max-width: inherit;
+    width: inherit;
+  }
+  .main{
+    flex-direction: column;
+    .sidebar{
+      max-width: 100%;
+      .menu{
+        ul{
+          display: flex;
+          flex-wrap: wrap;
+          li{
+            max-width: 200px;
+          }
+        }
+      }
+      .widgets{
+        display: flex;
+        flex-wrap: wrap;
+        .widget{
+          max-width: 50%;
+        }
       }
     }
   }
