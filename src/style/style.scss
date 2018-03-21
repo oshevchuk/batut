@@ -302,6 +302,17 @@ header {
   }
 }
 
+#menu{
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -10px;
+}
+input#menu:checked ~ ul{
+  display: block!important;
+}
+
 @media screen and (max-width: 1200px) {
   header .content .contacts{
     flex-direction: column;
@@ -346,6 +357,18 @@ header {
   }
   .body .item{
     width: calc(50% - 10px);
+  }
+
+  .main .sidebar {
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      ul {
+        display: none;
+      }
+    }
   }
 }
 
