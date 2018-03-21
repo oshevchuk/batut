@@ -44,12 +44,14 @@ header {
       }
       .phone{
         margin-right: 20px;
+        white-space: nowrap;
         b{
           font-size: 24px;
           font-weight: 400;
         }
       }
       a{
+        white-space: nowrap;
         font-size: 12px;
         line-height: 18px;
         color: #5A5040;
@@ -78,6 +80,7 @@ header {
             padding: 3px 10px;
             line-height: 30px;
             margin: 4px;
+            white-space: nowrap;
           }
           &:hover{
             background-color: green;
@@ -328,5 +331,29 @@ header {
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  header .content .navigation ul{
+    flex-wrap: wrap;
+  }
+  header .content .contacts>div{
+    flex-direction: column;
+  }
+  .logo{
+    display: none;
+  }
+  .body .item{
+    width: calc(50% - 10px);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .body .item{
+    width: calc(100% - 10px);
+  }
+  .main .sidebar .widgets .widget{
+    max-width: 100%;
   }
 }
